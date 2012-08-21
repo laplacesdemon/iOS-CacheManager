@@ -130,12 +130,7 @@ static id<FAWebServiceCacheManager> cacheManager = nil;
     NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
     [defaults setObject:data forKey:identifier];
     [defaults setObject:[NSDate date] forKey:[FAWebServiceKeyGenerator lastUsageKeyForIdentifier:identifier]];
-    BOOL res = [defaults synchronize];
-    if (res) {
-        NSLog(@"sync success");
-    } else {
-        NSLog(@"sync fail");
-    }
+    [defaults synchronize];
 }
 
 - (id)fetchCacheDataForIdentifier:(NSString *)identifier
